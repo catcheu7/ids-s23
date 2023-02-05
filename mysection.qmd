@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Put an overview here. Use Markdown syntax.
+The matplotlib library is used to visualize data in a way to help others understand data, especially for large datasets. A variety of graphs can be made in both 2D and 3D. Matplotlib can also produce animations which can be used on graphical applications.
 
 
 ## How to Use

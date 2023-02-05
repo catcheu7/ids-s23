@@ -33,5 +33,3 @@ plt.show()
 The animation submodule in matplotlib can simulate data.
 
 ## Conclusion
-
-Put sumaries here.

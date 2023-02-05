@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "mysection.html#introduction",
+    "href": "mysection.html#introduction",
+    "title": "6  Introduction to matplotlib",
+    "section": "6.1 Introduction",
+    "text": "6.1 Introduction\nThe matplotlib library is used to visualize data in a way to help others understand data, especially for large datasets. A variety of graphs can be made in both 2D and 3D. Matplotlib can also produce animations which can be used on graphical applications."
+  },
+  {
+    "objectID": "mysection.html#how-to-use",
+    "href": "mysection.html#how-to-use",
+    "title": "6  Introduction to matplotlib",
+    "section": "6.2 How to Use",
+    "text": "6.2 How to Use\nThe module is not a default package to Python. Therefore, users will need to install using either Anaconda or pip.\nWithin the library are many functions and submodules that can be used depending on the purpose of the visualization. For this chapter, a progression series will be done on a randomly generated dataset in order to provide a comprehensive look into the visual elements that may be used for the graphs.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nnp.random.seed(8465);"
+  },
+  {
+    "objectID": "mysection.html#sub-topic-2",
+    "href": "mysection.html#sub-topic-2",
+    "title": "6  Introduction to matplotlib",
+    "section": "6.3 Sub Topic 2",
+    "text": "6.3 Sub Topic 2\nPut materials on topic 2 here."
+  },
+  {
+    "objectID": "mysection.html#conclusion",
+    "href": "mysection.html#conclusion",
+    "title": "6  Introduction to matplotlib",
+    "section": "6.4 Conclusion",
+    "text": "6.4 Conclusion\nPut sumaries here."
+  },
+  {
+    "objectID": "mysection.html#animation",
+    "href": "mysection.html#animation",
+    "title": "6  Introduction to matplotlib",
+    "section": "6.3 Animation",
+    "text": "6.3 Animation\nThe animation submodule in matplotlib can simulate data."
+  }
+]

@@ -10,8 +10,6 @@ Put an overview here. Use Markdown syntax.
 
 The module is not a default package to Python. Therefore, users will need to install using either Anaconda or pip.
 
-We will start with a progression series to demonstrate different examples of plots that can be used. While matplotlib can be used for 2D plots, it is possible to do 3D and even animations with some submodules of the library.
-
 ```{python}
 import numpy as np
 

@@ -20,17 +20,16 @@ import matplotlib.plotly as plt
 
 np.random.seed(8465);
 
-for i = 1:100:
+for i in range(1,100):
 	xcoords = np.random.rand(0,4);
 	ycoords = np.random.rand(0,4);
 	fig = scatter(xcoords,ycoords);
 
-# do something
 ```
 
-## Sub Topic 2
+## Animation
 
-Put materials on topic 2 here.
+The animation submodule in matplotlib can simulate data.
 
 ## Conclusion
 

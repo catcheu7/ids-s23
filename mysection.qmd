@@ -1,19 +1,21 @@
-# My Presentation Topic
+# Introduction to matplotlib
 
 
 ## Introduction
 
-Put an overview here. Use Markdown syntax.
+The ability to produce visualizations is helpful when presenting summaries of large datasets to others who may not have the time to analyze them.
+One library that can be used is the matplotlib library. It provides a variety of plots to choose in order to efficiently present data.
+A progression of graphs will be used to demonstrate basic functions users can find to customize their graphs.
 
 
-## Sub Topic 1
+## How to Install
 
-Put materials on topic 1 here
-
-Python examples can be put into `python` code chunks:
+Matplotlib is not a default package and therefore must be installed via pip or Anaconda.
 
 ```{python}
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 # do something
 ```

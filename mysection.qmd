@@ -23,7 +23,8 @@ x = np.random.rand(0,3,20);
 y = np.random.rand(0,3,20);
 z = np.random.rand(0,3,20);
 
-fig,ax = plt.scatter(x,y)
+plt.scatter(x,y)
+plt.show()
 
 ```
 

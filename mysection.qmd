@@ -10,10 +10,20 @@ Put an overview here. Use Markdown syntax.
 
 The module is not a default package to Python. Therefore, users will need to install using either Anaconda or pip.
 
+Within the library are many functions and submodules that can be used depending on the purpose of the visualization. For this chapter, a progression series will be done on a randomly generated dataset in order to provide a comprehensive look into the visual elements that may be used for the graphs.
+
 ```{python}
 import numpy as np
+import matplotlib.plotly as plt
+
+#The plotly submodule is used for graphical elements.
 
 np.random.seed(8465);
+
+for i = 1:100:
+	xcoords = np.random.rand(0,4);
+	ycoords = np.random.rand(0,4);
+	fig = scatter(xcoords,ycoords);
 
 # do something
 ```

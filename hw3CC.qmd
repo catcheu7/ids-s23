@@ -20,13 +20,15 @@ dfnyc.head()
 
 2. We would like to see descriptions of all columns.
 
-```{python}
+For numerical:
 
+```{python}
 dfnyc.describe()
 ```
 
-```{python}
+For categorical:
 
+```{python}
 dfnyc.describe(include = 'object')
 ```
 

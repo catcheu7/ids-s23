@@ -26,7 +26,7 @@ We then set all cases to upper in the column and redo the table.
 
 ```{python}
 
-dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].str.upper().value_sort()
+dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].str.upper().value_counts()
 
 ```
 

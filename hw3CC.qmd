@@ -18,6 +18,13 @@ dfnyc.head()
 
 ```
 
+2. We would like to see descriptions of all columns.
+
+```{python}
+
+dfnyc.describe()
+```
+
 ```{python}
 dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_counts()
 ```

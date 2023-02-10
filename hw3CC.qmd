@@ -1,0 +1,15 @@
+---
+title: Homework 3
+author: Catherine Cheu
+data: February 10, 2023
+---
+
+For this assignment, the crashes in NYC in the month of January 2023 are analyzed.
+
+```{python}
+
+import pandas as pd
+
+```
+
+# Recommendations

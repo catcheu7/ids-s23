@@ -18,4 +18,8 @@ dfnyc.head()
 
 ```
 
+```{python}
+dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_sort()
+```
+
 # Recommendations

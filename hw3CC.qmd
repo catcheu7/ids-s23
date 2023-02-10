@@ -16,7 +16,7 @@ dfnyc.head()
 
 #Fixing Nans
 
-dfnyc["LONGITUTDE", "LATITUDE"] = dfnyc["LONGITUDE", "LATITUDE"].replace(0,nan)
+dfnyc["LONGITUTDE"] = dfnyc["LONGITUDE"].replace(0,nan)
 
 ```
 

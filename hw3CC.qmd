@@ -15,10 +15,6 @@ dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 
 dfnyc.head()
 
-#Fixing Nans
-
-dfnyc["LONGITUTDE"] = dfnyc["LONGITUDE"].replace(0,np.nan)
-
 ```
 
 # Recommendations

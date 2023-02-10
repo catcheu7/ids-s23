@@ -19,7 +19,9 @@ dfnyc.head()
 ```
 
 ```{python}
-dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_sort()
+dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_counts()
 ```
+
+We then set all cases to upper in the column and redo the table.
 
 # Recommendations

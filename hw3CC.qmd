@@ -22,6 +22,8 @@ dfnyc.head()
 
 ```{python}
 
+dfnyc.describe()
+
 dfnyc.describe(include = 'object')
 ```
 

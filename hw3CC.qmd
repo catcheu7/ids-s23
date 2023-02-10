@@ -9,6 +9,7 @@ For this assignment, the crashes in NYC in the month of January 2023 are analyze
 ```{python}
 
 import pandas as pd
+import numpy as np
 
 dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 
@@ -16,7 +17,7 @@ dfnyc.head()
 
 #Fixing Nans
 
-dfnyc["LONGITUTDE"] = dfnyc["LONGITUDE"].replace(0,nan)
+dfnyc["LONGITUTDE"] = dfnyc["LONGITUDE"].replace(0,np.nan)
 
 ```
 

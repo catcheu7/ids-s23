@@ -10,6 +10,7 @@ For this assignment, the crashes in NYC in the month of January 2023 are analyze
 
 import pandas as pd
 import numpy as np
+import uszipcode as zcode
 
 dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 

@@ -39,6 +39,8 @@ For missing:
 dfnyc.isnull().sum()/len(dfnyc)
 ```
 
+3. Some coordinates are 0 which is nonsensical. We will correct them to NaNs.
+
 7. We want to see the frequencies for the contributing factors for vehicle 1.
 
 ```{python}

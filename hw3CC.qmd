@@ -33,6 +33,12 @@ For categorical:
 dfnyc.describe(include = 'object')
 ```
 
+For missing:
+
+```{python}
+dfnyc.isnull().sum()
+```
+
 7. We want to see the frequencies for the contributing factors for vehicle 1.
 
 ```{python}

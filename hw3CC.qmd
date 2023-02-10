@@ -11,6 +11,7 @@ For this assignment, the crashes in NYC in the month of January 2023 are analyze
 import pandas as pd
 import numpy as np
 import uszipcode as zcode
+from uszipcode import SearchEngine
 
 dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 
@@ -31,6 +32,8 @@ For categorical:
 ```{python}
 dfnyc.describe(include = 'object')
 ```
+
+7. We want to see the frequencies for the contributing factors for vehicle 1.
 
 ```{python}
 dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_counts()

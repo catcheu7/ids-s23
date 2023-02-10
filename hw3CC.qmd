@@ -36,7 +36,7 @@ dfnyc.describe(include = 'object')
 For missing:
 
 ```{python}
-dfnyc.isnull().sum()
+dfnyc.isnull().sum()/len(dfnyc)
 ```
 
 7. We want to see the frequencies for the contributing factors for vehicle 1.

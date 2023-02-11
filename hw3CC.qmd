@@ -47,24 +47,26 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 
 4. We will look to see if any off streets have missing coordinates and then fill in if they do.
 
+5. Was optional so not done.
+
 6. We will use the coodinates to fill in missing zip codes and boroughs.
 
 ```{python}
 search = SearchEngine()
-for row in dfnyc.itertuples():
+for index, row in dfnyc.itertuples():
 	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row[5])) & (row.BOROUGH == 'NaN'):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
-		row[5] = r[0]
-	if 10001 <= row[5] <= 10282:
-		row.BOUROUGH = "Manhatten"
-	elif 10301 <= row[5] <= 10314:
-		row.BOROUGH = "Staten Island"
-	elif 10451 <= row[5] <= 10475:
-		row.BOROUGH = "Bronx"
-	elif 11004 <= row[5] <= 11109 or 11351 <= row[5] <= 11697:
-		row.BOROUGH = "Queens"
-	elif 11201 <= row[5] <= 11256:
-		row.BOROUGH = "Brooklyn"
+		dfnyc.loc(index, row[5]) = r[0]
+		if 10001 <= row[5] <= 10282:
+			dfnyc.loc(index, row.BOROUGH) = "Manhatten"
+		elif 10301 <= row[5] <= 10314:
+			dfnyc.loc(index, row.BOROUGH) = "Staten Island"
+		elif 10451 <= row[5] <= 10475:
+			dfnyc.loc(index, row.BOROUGH) = "Bronx"
+		elif 11004 <= row[5] <= 11109 or 11351 <= row[5] <= 11697:
+			dfnyc.loc(index, row.BOROUGH) = "Queens"
+		elif 11201 <= row[5] <= 11256:
+			dfnyc.loc(index, row.BOROUGH) = "Brooklyn"
 
 dfnyc.head()
 ```
@@ -84,3 +86,5 @@ dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].str.upper().value_counts()
 ```
 
 # Recommendations
+	I would like to see some clarification on the driver distraction since there are many factors listed in the column that count as distractions such as texting.
+I also would like to see the boroughs where the streets are or the zip codes if there are already coordinates for easier processing.

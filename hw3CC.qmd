@@ -52,7 +52,7 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```{python}
 search = SearchEngine()
 for row in dfnyc.itertuples():
-	if ~np.isnan(row.LATITUDE) & ~np.isnan(row.LONGITUDE) & np.isnan(row[5]) & row.BOROUGH == 'NaN':
+	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row.'ZIP CODE')) & (row.BOROUGH == 'NaN'):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
 		row[5] = r[0]
 ```

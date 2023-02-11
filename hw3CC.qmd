@@ -50,9 +50,9 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```{python}
 search = SearchEngine()
 for row in dfnyc.itertuples():
-	if ~np.isnan(row.LATITUDE) & ~np.isnan(row.LONGITUDE) & np.isnan(row.ZIPCODE) & np.isnan(row.BOROUGH):
+	if ~np.isnan(row.LATITUDE) & ~np.isnan(row.LONGITUDE) & np.isnan(row.ZIP CODE) & np.isnan(row.BOROUGH):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
-		row.ZIPCODE = r[0]
+		row.ZIP CODE = r[0]
 ```
 
 7. We want to see the frequencies for the contributing factors for vehicle 1.

@@ -61,7 +61,7 @@ for row in dfnyc.itertuples():
 		row.BOROUGH = "Staten Island"
 	elif 10451 <= row[5] <= 10475:
 		row.BOROUGH = "Bronx"
-	elif 11004 <= row[5] <= 11109 || 11351 <= row[5] <= 11697:
+	elif 11004 <= row[5] <= 11109 or 11351 <= row[5] <= 11697:
 		row.BOROUGH = "Queens"
 	elif 11201 <= row[5] <= 11256:
 		row.BOROUGH = "Brooklyn"

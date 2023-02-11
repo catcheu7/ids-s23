@@ -1,7 +1,7 @@
 ---
 title: Homework 3
 author: Catherine Cheu
-data: February 10, 2023
+date: February 10, 2023
 ---
 
 For this assignment, the crashes in NYC in the month of January 2023 are analyzed.
@@ -52,9 +52,19 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```{python}
 search = SearchEngine()
 for row in dfnyc.itertuples():
-	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row.'ZIP CODE')) & (row.BOROUGH == 'NaN'):
+	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row[5])) & (row.BOROUGH == 'NaN'):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
 		row[5] = r[0]
+	if 10001 <= row[5] <= 10282:
+		row.BOUROUGH = "Manhatten"
+	elif 10301 <= row[5] <= 10314:
+		row.BOROUGH = "Staten Island"
+	elif 10451 <= row[5] <= 10475:
+		row.BOROUGH = "Bronx"
+	elif 11004 <= row[5] <= 11109 || 11351 <= row[5] <= 11697:
+		row.BOROUGH = "Queens"
+	elif 11201 <= row[5] <= 11256:
+		row.BOROUGH = "Brooklyn"
 ```
 
 7. We want to see the frequencies for the contributing factors for vehicle 1.

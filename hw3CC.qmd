@@ -12,6 +12,7 @@ import pandas as pd
 import numpy as np
 import uszipcode as zcode
 from uszipcode import SearchEngine
+import geopy
 
 dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 
@@ -47,6 +48,13 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 
 4. We will look to see if any off streets have missing coordinates and then fill in if they do.
 
+```{python}
+
+for row in dfnyc.itertuples():
+	if (row._10 != 'NaN') & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
+		print(row)
+```
+
 5. Was optional so not done.
 
 6. We will use the coodinates to fill in missing zip codes and boroughs.
@@ -54,18 +62,19 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```{python}
 search = SearchEngine()
 for index, row in enumerate(dfnyc.itertuples(),1):
-	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row[5])) & (row.BOROUGH == 'NaN'):
+	if (np.isfinite(row.LATITUDE)) & (np.isfinite(row.LONGITUDE)) & (np.isnan(row._4)) & (row.BOROUGH == 'nan'):
+		print(index)
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
-		dfnyc.at[index, row[5]] = r[0]
-		if 10001 <= row[5] <= 10282:
+		dfnyc.at[index, row._4] = r[0]
+		if 10001 <= row._4 <= 10282:
 			dfnyc.at[index, row.BOROUGH] = "Manhatten"
-		elif 10301 <= row[5] <= 10314:
+		elif 10301 <= row._4 <= 10314:
 			dfnyc.at[index, row.BOROUGH] = "Staten Island"
-		elif 10451 <= row[5] <= 10475:
+		elif 10451 <= row._4 <= 10475:
 			dfnyc.at[index, row.BOROUGH] = "Bronx"
-		elif 11004 <= row[5] <= 11109 or 11351 <= row[5] <= 11697:
+		elif 11004 <= row._4 <= 11109 or 11351 <= row[5] <= 11697:
 			dfnyc.at[index, row.BOROUGH] = "Queens"
-		elif 11201 <= row[5] <= 11256:
+		elif 11201 <= row._4 <= 11256:
 			dfnyc.at[index, row.BOROUGH] = "Brooklyn"
 
 dfnyc.head()

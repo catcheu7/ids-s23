@@ -41,6 +41,10 @@ dfnyc.isnull().sum()/len(dfnyc)
 
 3. Some coordinates are 0 which is nonsensical. We will correct them to NaNs.
 
+```{python}
+dfnyc["LATITUDE", "LONGITUDE"].replace(0.0, np.nan)
+```
+
 7. We want to see the frequencies for the contributing factors for vehicle 1.
 
 ```{python}

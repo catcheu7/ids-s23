@@ -45,6 +45,16 @@ dfnyc.isnull().sum()/len(dfnyc)
 dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```
 
+6. We will use the coodinates to fill in missing zip codes and boroughs.
+
+```{python}
+search = SearchEngine()
+for row in dfnyc.itertuples():
+	if row[["LATITUDE","LONGITUDE"]].notnull() & row[["ZIPCODE","BOROUGH"]].isnull():
+		r = search.by_coordinates(row["LATITUDE"], row["LONGITUDE"])
+		row["ZIPCODE"] = r[0]
+```
+
 7. We want to see the frequencies for the contributing factors for vehicle 1.
 
 ```{python}

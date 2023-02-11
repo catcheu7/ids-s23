@@ -53,10 +53,10 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 
 ```{python}
 search = SearchEngine()
-for index, row in dfnyc.itertuples():
+for index, row in enumerate(dfnyc.itertuples(),1):
 	if (~np.isnan(row.LATITUDE)) & (~np.isnan(row.LONGITUDE)) & (np.isnan(row[5])) & (row.BOROUGH == 'NaN'):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
-		dfnyc.at(index, row[5]) = r[0]
+		dfnyc.at[index, row[5]] = r[0]
 		if 10001 <= row[5] <= 10282:
 			dfnyc.at[index, row.BOROUGH] = "Manhatten"
 		elif 10301 <= row[5] <= 10314:

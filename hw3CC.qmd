@@ -4,7 +4,7 @@ author: Catherine Cheu
 date: February 10, 2023
 ---
 
-For this assignment, the crashes in NYC in the month of January 2023 are analyzed.
+1. For this assignment, the crashes in NYC in the month of January 2023 are analyzed.
 
 ```{python}
 
@@ -51,7 +51,7 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 ```{python}
 
 for row in dfnyc.itertuples():
-	if (row._10 != 'NaN') & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
+	if (pd.isna(row._10) == False) & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
 		print(row)
 ```
 
@@ -62,7 +62,7 @@ for row in dfnyc.itertuples():
 ```{python}
 search = SearchEngine()
 for index, row in enumerate(dfnyc.itertuples(),1):
-	if (np.isfinite(row.LATITUDE)) & (np.isfinite(row.LONGITUDE)) & (np.isnan(row._4)) & (row.BOROUGH == 'nan'):
+	if (np.isfinite(row.LATITUDE)) & (np.isfinite(row.LONGITUDE)) & (np.isnan(row._4)) & (pd.isna(row.BOROUGH) == True):
 		print(index)
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
 		dfnyc.at[index, row._4] = r[0]

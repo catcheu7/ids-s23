@@ -1,0 +1,95 @@
+---
+title: Homework 3
+author: Catherine Cheu
+date: 'February 10, 2023'
+jupyter: python3
+---
+
+1. For this assignment, the crashes in NYC in the month of January 2023 are analyzed.
+
+```{python}
+import pandas as pd
+import numpy as np
+import uszipcode as zcode
+from uszipcode import SearchEngine
+import geopy
+
+dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
+
+dfnyc.head()
+```
+
+2. We would like to see descriptions of all columns.
+
+For numerical:
+
+```{python}
+dfnyc.describe()
+```
+
+For categorical:
+
+```{python}
+dfnyc.describe(include = 'object')
+```
+
+For missing:
+
+```{python}
+dfnyc.isnull().sum()/len(dfnyc)
+```
+
+3. Some coordinates are 0 which is nonsensical. We will correct them to NaNs.
+
+```{python}
+dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
+```
+
+4. We will look to see if any off streets have missing coordinates and then fill in if they do.
+
+```{python}
+for row in dfnyc.itertuples():
+	if (pd.isna(row._10) == False) & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
+		print(row)
+```
+
+5. Was optional so not done.
+
+6. We will use the coodinates to fill in missing zip codes and boroughs.
+
+```{python}
+search = SearchEngine()
+for index, row in enumerate(dfnyc.itertuples(),1):
+	if (np.isfinite(row.LATITUDE)) & (np.isfinite(row.LONGITUDE)) & (np.isnan(row._4)) & (pd.isna(row.BOROUGH) == True):
+		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
+		dfnyc.at[index, row._4] = r.zipcode
+		if 10001 <= row._4 <= 10282:
+			dfnyc.at[index, "Borough"] = "Manhatten"
+		elif 10301 <= row._4 <= 10314:
+			dfnyc.at[index, "Borough"] = "Staten Island"
+		elif 10451 <= row._4 <= 10475:
+			dfnyc.at[index, "Borough"] = "Bronx"
+		elif 11004 <= row._4 <= 11109 or 11351 <= row[5] <= 11697:
+			dfnyc.at[index, "Borough"] = "Queens"
+		elif 11201 <= row._4 <= 11256:
+			dfnyc.at[index, "Borough"] = "Brooklyn"
+
+dfnyc.head()
+```
+
+7. We want to see the frequencies for the contributing factors for vehicle 1.
+
+```{python}
+dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].value_counts()
+```
+
+We then set all cases to upper in the column and redo the table.
+
+```{python}
+dfnyc["CONTRIBUTING FACTOR VEHICLE 1"].str.upper().value_counts()
+```
+
+# Recommendations
+	I would like to see some clarification on the driver distraction since there are many factors listed in the column that count as distractions such as texting.
+I also would like to see the boroughs where the streets are or the zip codes if there are already coordinates for easier processing.
+

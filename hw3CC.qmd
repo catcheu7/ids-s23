@@ -64,7 +64,7 @@ search = SearchEngine()
 for index, row in enumerate(dfnyc.itertuples(),1):
 	if (np.isfinite(row.LATITUDE)) & (np.isfinite(row.LONGITUDE)) & (np.isnan(row._4)) & (pd.isna(row.BOROUGH) == True):
 		r = search.by_coordinates(row.LATITUDE, row.LONGITUDE)
-		dfnyc.at[index, row._4] = r[0].zipcode
+		dfnyc.at[index, "ZIP CODE"] = r[0].zipcode
 		if 10001 <= row._4 <= 10282:
 			dfnyc.at[index, "BOROUGH"] = "Manhatten"
 		elif 10301 <= row._4 <= 10314:

@@ -19,6 +19,8 @@ import scipy.stats as scistats
 
 dfnycraw = pd.read_csv("\data\nyc_crash_Jan2023.csv")
 
+dfnycraw["LATITUDE","LONGITUDE"] = dfnycraw["LATITUDE","LONGITUDE"].replace(0.0, np.nan)
+
 ```
 
 2. Hour variable

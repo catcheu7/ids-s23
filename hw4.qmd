@@ -4,11 +4,14 @@ author: Catherine Cheu
 date: February 17, 2023
 ---
 
-1. Use cross tables to analyze:
+1. Cross table analysis
 
 ```{python}
 import numpy as np
 import pandas as pd
 import sqlite3 as sq
 import gmplot as gm
+
 ```
+
+2. Hour variable

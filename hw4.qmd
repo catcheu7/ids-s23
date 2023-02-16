@@ -14,6 +14,9 @@ import gmplot as gm
 import plotnine as pn
 from plotnine import ggplot
 from plotnine import aes
+import scipy.stats.chi2_contingency as chi2
+
+dfnycraw = pd.read_csv("\data\nyc_crash_Jan2023.csv")
 
 ```
 

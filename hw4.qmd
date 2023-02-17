@@ -23,12 +23,14 @@ dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
 dfnycraw["MISSCO"] = (dfnycraw["LATITUDE"] == dfnycraw["LONGITUDE"]).astype(int)
 
-pd.crosstab(dfnycraw["BOROUGH"], dfnycraw["MISSCO"])
+cross = pd.crosstab(dfnycraw["BOROUGH"], dfnycraw["MISSCO"])
+
+chi2, d, q, p = scistats.chi2_contingency(cross)
 ```
 
 2. Hour variable
 
 ```{python}
 
-dfnycraw["Hour"] = dfnycraw["TIME"]/pd.Timedelta(hour = 1)
+dfnycraw["Hour"] = dfnycraw["CRASH TIME"]/pd.Timedelta(hour = 1)
 ```

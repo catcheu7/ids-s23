@@ -21,7 +21,7 @@ dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
 dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
-dfnycraw["MISSCOOR"] = dfnycraw["BOROUGH"].where(np.isnan(dfnycraw.LATITUDE) and np.isnan(dfnycraw.LONGITUDE))
+dfnycraw["MISSCOOR"] = dfnycraw["BOROUGH"].mask(np.isnan(dfnycraw.LATITUDE) and np.isnan(dfnycraw.LONGITUDE))
 
 dfnycraw.crosstab(BOROUGH, MISSCOOR)
 

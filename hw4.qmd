@@ -38,7 +38,7 @@ print(d)
 ```{python}
 dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%H:%M").dt.hour
 
-ggplot(dfnycraw, aes(x = dfnycraw["Hour"], y = after_stat, fill = dfnycraw["BOROUGH"])
+ggplot(dfnycraw, aes(x = dfnycraw["Hour"], y = after_stat, fill = dfnycraw["BOROUGH"]))
 ```
 
 3. Plot on NYC map

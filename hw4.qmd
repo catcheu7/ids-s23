@@ -21,9 +21,9 @@ dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
 dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
-dfnycraw["MISSC"] = dfnycraw.LATITUDE == dfnycraw.LONGITUDE and dfnycraw.BOROUGH != 'NaN'
+dfnycraw["MISSCO"] = dfnycraw.LATITUDE == dfnycraw.LONGITUDE and dfnycraw.BOROUGH != 'NaN'
 
-dfnycraw.crosstab(BOROUGH, MISSC)
+dfnycraw.crosstab(BOROUGH, MISSCO)
 ```
 
 2. Hour variable

@@ -12,8 +12,7 @@ import pandas as pd
 import sqlite3 as sq
 import gmplot as gm
 import plotnine as pn
-from plotnine import ggplot
-from ggplot import *
+from plotnine import ggplot, geom_histogram
 from plotnine import aes
 
 import scipy.stats as scistats

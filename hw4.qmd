@@ -16,6 +16,7 @@ from plotnine import ggplot
 from plotnine import aes
 
 import scipy.stats as scistats
+import datetime as dt
 
 dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
@@ -33,7 +34,3 @@ print(d)
 ```
 
 2. Hour variable
-
-```{python}
-dfnycraw["Hour"] = dfnycraw["CRASH TIME"]/pd.Timedelta(hours = 1)
-```

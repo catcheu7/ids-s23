@@ -19,7 +19,7 @@ import scipy.stats as scistats
 
 dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
-dfnycraw["LATITUDE","LONGITUDE"] = dfnycraw["LATITUDE","LONGITUDE"].replace(0.0, np.nan)
+dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
 dfnycraw["MISSCOOR"] = dfnycraw["BOROUGH"].where(np.isnan(LATITUDE) and np.isnan(LONGITUDE))
 

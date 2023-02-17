@@ -33,4 +33,12 @@ print(cross)
 print(d)
 ```
 
-2. Hour variable
+2. Histogram based on hour
+
+```{python}
+dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%HH:%MM").dt.hour
+
+ggplot(dfnycraw["Hour"])
+```
+
+3. Plot on NYC map

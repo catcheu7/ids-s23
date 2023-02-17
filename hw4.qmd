@@ -31,6 +31,4 @@ chi2, d, q, p = scistats.chi2_contingency(cross)
 2. Hour variable
 
 ```{python}
-
-dfnycraw["Hour"] = dfnycraw["CRASH TIME"]/pd.Timedelta(hour = 1)
 ```

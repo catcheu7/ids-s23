@@ -52,3 +52,9 @@ gmap.scatter(lat,long)
 
 gmap.draw(r"nymap.html")
 ```
+
+4. Cross with injuries.
+
+```{python}
+dfnycraw["Injury"] = (dfnycraw["NUMBER OF PERSONS INJURED"] > 0).astype(int)
+```

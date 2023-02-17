@@ -34,3 +34,16 @@ print(d)
 ```
 
 2. Hour variable
+
+```{python}
+dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%H:%M").dt.hour
+
+```
+
+3. Map onto a NYC map
+
+4. Injury variable
+
+5. Combine with zip code database
+
+6. Logisitic regression

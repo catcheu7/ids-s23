@@ -44,8 +44,8 @@ ggplot(dfnycraw, aes(x = dfnycraw["Hour"], fill = dfnycraw["BOROUGH"])) + geom_h
 3. Plot on NYC map
 
 ```{python}
-lat = dfnycraw["LATITUDE"].drop.na()
-long = dfnycraw["LONGITUDE"].drop.na()
+latitude = dfnycraw["LATITUDE"].dropna().values
+longitude = dfnycraw["LONGITUDE"].dropna().values
 
 gmap = gmplot.GoogleMapPlotter(40.769737, -73.91244, 14)
 ```

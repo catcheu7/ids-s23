@@ -13,6 +13,7 @@ import numpy as np
 import uszipcode as zcode
 from uszipcode import SearchEngine
 import geopy
+from geopy.geocoders import Nominatim
 
 dfnyc = pd.read_csv("data/nyccrash_Jan2023.csv")
 
@@ -50,9 +51,13 @@ dfnyc[["LATITUDE", "LONGITUDE"]].replace(0.0, np.nan)
 
 ```{python}
 
-for row in dfnyc.itertuples():
+geoloc = Nominatim(user_agent = 'hw3')
+
+for index, row in enumerate(dfnyc.itertuples(),1):
 	if (pd.isna(row._10) == False) & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
-		print(row)
+		latcor = geoloc.geocode(row._10)
+		dfnyc.at[index, "LATITUDE"] = latcor.latitude
+		dfnyc.at[index, "LONGITUDE"] = latcor.longitude
 ```
 
 5. Was optional so not done.

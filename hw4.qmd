@@ -23,12 +23,12 @@ dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
 dfnycraw["MISSCO"] = (dfnycraw["LATITUDE"] == dfnycraw["LONGITUDE"]).astype(int)
 
-dfnycraw.crosstab(BOROUGH, MISSCO)
+pd.crosstab(dfnycraw["BOROUGH"], dfnycraw["MISSCO"])
 ```
 
 2. Hour variable
 
 ```{python}
 
-dfnycraw["Hour"] = dfnycraw["TIME"]/pd.Timer(hour = 1)
+dfnycraw["Hour"] = dfnycraw["TIME"]/pd.Timedelta(hour = 1)
 ```

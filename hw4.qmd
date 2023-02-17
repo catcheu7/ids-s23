@@ -36,7 +36,7 @@ print(d)
 2. Histogram based on hour
 
 ```{python}
-dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%HH:%MM").dt.hour
+dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%H:%M").dt.hour
 
 ggplot(dfnycraw["Hour"])
 ```

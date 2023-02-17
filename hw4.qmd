@@ -21,10 +21,9 @@ dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
 dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
-dfnycraw["MISSCOOR"] = dfnycraw["BOROUGH"].mask(np.isnan(dfnycraw.LATITUDE) and np.isnan(dfnycraw.LONGITUDE))
+dfnycraw.MISS = dfnycraw.BOROUGH.mask(dfnycraw.LATITUDE == np.nan and dfnycraw.LONGITUDE == np.nan)
 
-dfnycraw.crosstab(BOROUGH, MISSCOOR)
-
+dfnycraw.crosstab(BOROUGH, MISS)
 ```
 
 2. Hour variable

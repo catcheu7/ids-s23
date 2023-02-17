@@ -57,4 +57,5 @@ gmap.draw(r"nymap.html")
 
 ```{python}
 dfnycraw["Injury"] = (dfnycraw["NUMBER OF PERSONS INJURED"] > 0).astype(int)
+pd.crosstab(dfnycraw["Injury"], dfnycraw["BOROUGH"])
 ```

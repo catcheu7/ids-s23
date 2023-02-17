@@ -49,4 +49,6 @@ long = dfnycraw["LONGITUDE"].dropna().values
 
 gmap = gmplot.GoogleMapPlotter(40.769737, -73.91244, 14)
 gmap.scatter(lat,long)
+
+gmap.draw(r"nymap.html")
 ```

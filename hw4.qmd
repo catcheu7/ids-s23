@@ -71,5 +71,5 @@ print(p)
 
 ```{python}
 dfclean['Count'] = dfclean["Injury"]
-model = sfa.glm(formula = 'Count', data = dfclean, family = statsmodels.Poisson())
+model = sfa.glm(formula = 'Count', data = dfclean, family = statsmodels.families.Poisson())
 ```

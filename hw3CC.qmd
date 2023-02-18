@@ -56,7 +56,7 @@ geoloc = Nominatim(user_agent = 'hw3')
 for index, row in enumerate(dfnyc.itertuples(),1):
 	if (pd.isna(row._10) == False) & (np.isnan(row.LATITUDE)) & (np.isnan(row.LONGITUDE)):
 		latcor = geoloc.geocode(str(row._10 + ", New York City, NY"), timeout = 10000)
-		if latcor == null:
+		if latcor is None:
 			continue
 		dfnyc.at[index, "LATITUDE"] = latcor.latitude
 		dfnyc.at[index, "LONGITUDE"] = latcor.longitude

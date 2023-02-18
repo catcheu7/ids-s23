@@ -59,7 +59,7 @@ gmap.draw(r"nymap.html")
 4. Cross with injuries.
 
 ```{python}
-dfclean["Injury"] = (dfclean["NUMBER OF PERSONS INJURED"] > 0).astype(int)
+dfclean["Injury"] = np.where(dfclean["NUMBER OF PERSONS INJURED"] > 0, 1, 0)
 itable = pd.crosstab(dfclean["Injury"], dfclean["BOROUGH"])
 chi2, p, q, d = scistats.chi2_contingency(itable)
 print(p)

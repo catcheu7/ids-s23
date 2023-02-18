@@ -37,6 +37,8 @@ print(cross)
 print(d)
 ```
 
+Since the p-value is above 0.05, we fail to reject the null hypothesis that there is a relationship between the boroughs and the missing coordinates.
+
 2. Histogram based on hour
 
 ```{python}
@@ -64,8 +66,11 @@ gmap.draw(r"nymap.html")
 dfclean["Injury"] = np.where(dfclean["NUMBER OF PERSONS INJURED"] > 0, 1, 0)
 itable = pd.crosstab(dfclean["Injury"], dfclean["BOROUGH"])
 chi2, p, q, d = scistats.chi2_contingency(itable)
+print(itable)
 print(p)
 ```
+
+Since the p-value is above 0.05, we fail to reject the null hypothesis that there is no relationship between the incidence of injury and the boroughs.
 
 5. Merge with zip code database
 

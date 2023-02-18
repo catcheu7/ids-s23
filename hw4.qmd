@@ -70,5 +70,5 @@ print(p)
 6. Fit logistic regression
 
 ```{python}
-df['Count'] = dfclean["Injury"]
+dfclean['Count'] = dfclean["Injury"]
 ```

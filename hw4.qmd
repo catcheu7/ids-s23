@@ -79,9 +79,10 @@ Since the p-value is above 0.05, we fail to reject the null hypothesis that ther
 ```{python}
 search = SearchEngine()
 for index, row in enumerate(dfclean.itertuples(), 1):
-	if pd.isnan(row._4) == False:
+	if pd.isna(row._4) == False:
 		zr = search.by_zipcode(row._4)
 		dfclean.at[index, "POPULATION"] = zr[0].population
+		dfclean.at[index, "HOUSE UNIT"] = zr[0].housing_units
 ```
 
 6. Fit logistic regression

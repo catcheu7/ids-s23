@@ -79,7 +79,7 @@ Since the p-value is above 0.05, we fail to reject the null hypothesis that ther
 ```{python}
 search = SearchEngine()
 for index, row in enumerate(dfclean.itertuples(), 1):
-	if row._4 != np.nan:
+	if np.isnan(row._4) == False:
 		zr = search.by_zipcode(row._4)
 		dfclean.at[index, "POPULATION"] = zr[0].population
 ```

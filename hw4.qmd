@@ -34,7 +34,7 @@ chi2, d, q, p = scistats.chi2_contingency(cross)
 
 print(cross)
 
-print("p-value: " + d)
+print("p-value: " + str(d))
 ```
 
 Since the p-value is above 0.05, we fail to reject the null hypothesis that there is a relationship between the boroughs and the missing coordinates.
@@ -69,7 +69,7 @@ dfclean["Injury"] = np.where(dfclean["NUMBER OF PERSONS INJURED"] > 0, 1, 0)
 itable = pd.crosstab(dfclean["Injury"], dfclean["BOROUGH"])
 chi2, p, q, d = scistats.chi2_contingency(itable)
 print(itable)
-print("p-value: " + p)
+print("p-value: " + str(p))
 ```
 
 Since the p-value is above 0.05, we fail to reject the null hypothesis that there is no relationship between the incidence of injury and the boroughs.

@@ -38,16 +38,17 @@ print(d)
 2. Histogram based on hour
 
 ```{python}
-dfnycraw["Hour"] = pd.to_datetime(dfnycraw["CRASH TIME"], format = "%H:%M").dt.hour
+dfclean = pd.read_csv("clean.csv")
+dfclean["Hour"] = pd.to_datetime(dfclean["CRASH TIME"], format = "%H:%M").dt.hour
 
-ggplot(dfnycraw, aes(x = dfnycraw["Hour"], fill = dfnycraw["BOROUGH"])) + geom_histogram(binwidth = 1)
+ggplot(dfclean, aes(x = dfclean["Hour"], fill = dfclean["BOROUGH"])) + geom_histogram(binwidth = 1)
 ```
 
 3. Plot on NYC map
 
 ```{python}
-lat = dfnycraw["LATITUDE"].dropna().values
-long = dfnycraw["LONGITUDE"].dropna().values
+lat = dfclean["LATITUDE"].dropna().values
+long = dfclean["LONGITUDE"].dropna().values
 
 gmap = gmplot.GoogleMapPlotter(40.769737, -73.91244, 14)
 gmap.scatter(lat,long)
@@ -58,8 +59,8 @@ gmap.draw(r"nymap.html")
 4. Cross with injuries.
 
 ```{python}
-dfnycraw["Injury"] = (dfnycraw["NUMBER OF PERSONS INJURED"] > 0).astype(int)
-itable = pd.crosstab(dfnycraw["Injury"], dfnycraw["BOROUGH"])
+dfclean["Injury"] = (dfclean["NUMBER OF PERSONS INJURED"] > 0).astype(int)
+itable = pd.crosstab(dfclean["Injury"], dfclean["BOROUGH"])
 chi2, p, q, d = scistats.chi2_contingency(itable)
 print(p)
 ```

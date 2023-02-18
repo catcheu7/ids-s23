@@ -67,11 +67,14 @@ print(p)
 
 5. Merge with zip code database
 
+```{python}
+```
+
 6. Fit logistic regression
 
 ```{python}
 dfclean['Count'] = dfclean["Injury"]
-dfclean['x1'] = dfclean["BOROUGH"].cumcount()
+dfclean['x1'] = dfclean.groupby("BOROUGH").cumcount()
 model = sfa.glm(formula = 'Count ~ x1', data = dfclean, family = statsmodels.genmod.families.Binomial())
 fitl = model.fit()
 fitl.summary()

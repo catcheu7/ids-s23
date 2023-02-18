@@ -57,5 +57,7 @@ gmap.draw(r"nymap.html")
 
 ```{python}
 dfnycraw["Injury"] = (dfnycraw["NUMBER OF PERSONS INJURED"] > 0).astype(int)
-pd.crosstab(dfnycraw["Injury"], dfnycraw["BOROUGH"])
+itable = pd.crosstab(dfnycraw["Injury"], dfnycraw["BOROUGH"])
+chi2, p, q, d = scistats.chi2_contingency(itable)
+print(p)
 ```

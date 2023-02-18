@@ -81,6 +81,8 @@ search = SearchEngine()
 for index, row in enumerate(dfclean.itertuples(), 1):
 	if pd.isna(dfclean.at[index, "ZIP CODE"]) == False:
 		zr = search.by_zipcode(dfclean.at[index, "ZIP CODE"])
+		if zr is None:
+			continue
 		dfclean.at[index, "POPULATION"] = zr.population
 		dfclean.at[index, "HOUSE UNIT"] = zr.housing_units
 

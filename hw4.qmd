@@ -81,8 +81,10 @@ search = SearchEngine()
 for index, row in enumerate(dfclean.itertuples(), 1):
 	if pd.isna(dfclean.at[index, "ZIP CODE"]) == False:
 		zr = search.by_zipcode(dfclean.at[index, "ZIP CODE"])
-		dfclean.at[index, "POPULATION"] = zr[0].population
-		dfclean.at[index, "HOUSE UNIT"] = zr[0].housing_units
+		dfclean.at[index, "POPULATION"] = zr.population
+		dfclean.at[index, "HOUSE UNIT"] = zr.housing_units
+
+dfclean.head()
 ```
 
 6. Fit logistic regression

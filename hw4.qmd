@@ -45,7 +45,7 @@ Since the p-value is above 0.05, we fail to reject the null hypothesis that ther
 dfclean = pd.read_csv("clean.csv")
 dfclean["Hour"] = pd.to_datetime(dfclean["CRASH TIME"], format = "%H:%M").dt.hour
 
-ggplot(dfclean, aes(x = dfclean["Hour"], fill = dfclean["BOROUGH"].upper())) + geom_histogram(binwidth = 1)
+ggplot(dfclean, aes(x = dfclean["Hour"], fill = dfclean["BOROUGH"].str.upper())) + geom_histogram(binwidth = 1)
 ```
 
 3. Plot on NYC map

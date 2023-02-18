@@ -24,7 +24,7 @@ dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 
 dfnycraw[["LATITUDE","LONGITUDE"]].replace(0.0, np.nan)
 
-dfnycraw["MISSCO"] = (dfnycraw["LATITUDE"] == dfnycraw["LONGITUDE"] and dfnycraw["BOROUGH"] != 'NaN').astype(int)
+dfnycraw["MISSCO"] = (dfnycraw["LATITUDE"] == dfnycraw["LONGITUDE"] & dfnycraw["BOROUGH"] != 'NaN').astype(int)
 
 cross = pd.crosstab(dfnycraw["BOROUGH"], dfnycraw["MISSCO"])
 

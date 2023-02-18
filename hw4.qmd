@@ -78,13 +78,13 @@ Since the p-value is above 0.05, we fail to reject the null hypothesis that ther
 
 ```{python}
 search = SearchEngine()
-for index, row in enumerate(dfclean.itertuples(), 1):
-	if pd.isna(dfclean.at[index, "ZIP CODE"]) == False:
-		zr = search.by_zipcode(dfclean.at[index, "ZIP CODE"])
-		if zr is None:
-			continue
-		dfclean.at[index, "POPULATION"] = zr.population
-		dfclean.at[index, "HOUSE UNIT"] = zr.housing_units
+#for index, row in enumerate(dfclean.itertuples(), 1):
+#	if pd.isna(dfclean["ZIP CODE"].iloc[index]) == False:
+#		zr = search.by_zipcode(dfclean["ZIP CODE"].iloc[index])
+#		if zr is None:
+#			continue
+#		dfclean.at[index, "POPULATION"] = zr.population
+#		dfclean.at[index, "HOUSE UNIT"] = zr.housing_units
 
 dfclean.head()
 ```

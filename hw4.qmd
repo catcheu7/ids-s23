@@ -71,7 +71,8 @@ print(p)
 
 ```{python}
 dfclean['Count'] = dfclean["Injury"]
-model = sfa.glm(formula = 'Count', data = dfclean, family = statsmodels.genmod.families.Binomial())
+dfclean['x1'] = dfclean["BOROUGH"].cumcount()
+model = sfa.glm(formula = 'Count ~ x1', data = dfclean, family = statsmodels.genmod.families.Binomial())
 fitl = model.fit()
 fitl.summary()
 ```

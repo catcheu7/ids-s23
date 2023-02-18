@@ -20,7 +20,7 @@ import datetime as dt
 import statsmodels
 import statsmodels.formula.api as sfa
 import uszipcode as usz
-from usz import SearchEngine
+from uszipcode import SearchEngine
 
 dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 

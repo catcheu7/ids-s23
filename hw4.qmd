@@ -17,8 +17,8 @@ from plotnine import aes
 
 import scipy.stats as scistats
 import datetime as dt
-import statsmodels as smodel
-import smodel.formula.api as sfa
+import statsmodels
+import statsmodels.formula.api as sfa
 
 dfnycraw = pd.read_csv("data/nyccrash_Jan2023.csv")
 

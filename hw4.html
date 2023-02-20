@@ -199,7 +199,7 @@ p-value: 0.6392675753195849</code></pre>
 <p><img src="hw4_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>&lt;ggplot: (168281296977)&gt;</code></pre>
+<pre><code>&lt;ggplot: (147334927089)&gt;</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -243,13 +243,13 @@ p-value: 0.7986276298827155</code></pre>
 </ol>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> SearchEngine()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for index, row in enumerate(dfclean.itertuples(), 1):</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   if pd.isna(dfclean["ZIP CODE"].iloc[index]) == False:</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#       zr = search.by_zipcode(dfclean["ZIP CODE"].iloc[index])</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#       if zr is None:</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#           continue</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#       dfclean.at[index, "POPULATION"] = zr.population</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#       dfclean.at[index, "HOUSE UNIT"] = zr.housing_units</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> <span class="bu">enumerate</span>(dfclean.itertuples(), <span class="dv">1</span>):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.isna(row[<span class="dv">5</span>]) <span class="op">==</span> <span class="va">False</span>:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        zr <span class="op">=</span> search.by_zipcode(row[<span class="dv">5</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> zr <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        dfclean.at[index, <span class="st">"POPULATION"</span>] <span class="op">=</span> zr.population</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        dfclean.at[index, <span class="st">"HOUSE UNIT"</span>] <span class="op">=</span> zr.housing_units</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>dfclean.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -442,7 +442,7 @@ p-value: 0.7986276298827155</code></pre>
   <th>Date:</th>            <td>Fri, 17 Feb 2023</td> <th>  Deviance:          </th> <td>  7008.3</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>23:51:01</td>     <th>  Pearson chi2:      </th> <td>5.28e+03</td> 
+  <th>Time:</th>                <td>23:58:57</td>     <th>  Pearson chi2:      </th> <td>5.28e+03</td> 
 </tr>
 <tr>
   <th>No. Iterations:</th>          <td>4</td>        <th>  Pseudo R-squ. (CS):</th> <td>0.0001890</td>
